@@ -23,5 +23,6 @@ const loadInformation = () => {
     display: flex;
     align-items: center;
   }
+  
 }
 </style>

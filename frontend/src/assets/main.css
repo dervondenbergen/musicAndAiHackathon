@@ -1,0 +1,27 @@
+@import 'primeicons/primeicons.css';
+
+.icon
+{
+    opacity: 6d;
+}
+
+@font-face {
+  font-family: 'Kaspersky Sans';
+  src: url('/fonts/KasperskySans-Regular.woff2') format('woff2'),
+       url('/fonts/KasperskySans-Regular.ttf') format('truetype');
+  font-weight: 400; /* Normal */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kaspersky Sans';
+  src: url('/fonts/KasperskySans-Bold.woff2') format('woff2'),
+       url('/fonts/KasperskySans-Bold.ttf') format('truetype');
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
+.font
+{
+    font-family: 'Kaspersky Sans', sans-serif;
+}
