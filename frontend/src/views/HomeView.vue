@@ -11,6 +11,7 @@
       </template>
     </form>
 
+    <!-- Fix Form -->
     <FileUpload />
   </main>
 </template>
@@ -43,7 +44,7 @@ const fileSelected = () => {
   reader.readAsDataURL(imageInput.value.files[0]!);
 }
 
-const submitForm = (event: Event) => {
+const submitForm = async (event: Event) => {
   event.preventDefault();
 
   if (!form.value) {
@@ -52,16 +53,17 @@ const submitForm = (event: Event) => {
 
   const formData = new FormData(form.value!)
 
-  console.log(formData);
+  const soundscapeRequest = await fetch("http://localhost:3000/soundscape", {
+    method: "POST",
+    body: formData,
+  });
 
-  // send after here to Backend
-
-  // response will contain uuid
+  const soundscapeData = await soundscapeRequest.json();
 
   router.push({
     name: "soundscape",
     params: {
-      uuid: crypto.randomUUID(),
+      uuid: soundscapeData.uuid,
     }
   })
 }

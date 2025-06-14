@@ -15,14 +15,22 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', (req, res) => {
-    res.send({info: 'Architecture Soundscapes API. See https://github.com/teddyboy999/musicAndAiHackathon/tree/main/backend for more Details.'})
+    res.setHeader("Content-Type", "text/plain");
+    res.send('Architecture Soundscapes API.\n\nSee https://github.com/dervondenbergen/musicAndAiHackathon/tree/main/backend for more details.')
 });
 
 const queue = [];
-const runQueue = () => {
+const addQueue = (taskName, task) => {
+    console.info("Adding Task", taskName);
+    queue.push({taskName, task});
+}
+const runQueue = async () => {
     if (queue.length > 0) {
-        const task = queue.shift();
-        task();
+        const { taskName, task } = queue.shift();
+        console.group("Running Task", taskName);
+        await task();
+        console.log("Finished Task", taskName);
+        console.groupEnd();
     }
 }
 setInterval(runQueue, 1000);
@@ -45,6 +53,33 @@ const loadInformation = async (uuid) => {
     const infoText = await readFile(informationJson, { encoding: "utf-8" });
 
     return JSON.parse(infoText);
+}
+
+const updateInformation = async (uuid, newInfo) => {
+    const info = await loadInformation(uuid);
+    await saveInformation(uuid, Object.assign(info, newInfo));
+}
+
+const getImageTags = async (uuid, newImagePath) =>  {
+    const imageBuffer = await readFile(newImagePath);
+    
+    const aiFormData = new FormData();
+    const blob = new Blob([imageBuffer], { type: 'image/jpeg' });
+    aiFormData.append("image", blob, path.basename(newImagePath));
+
+    const fastAPI = await fetch("http://localhost:8000/predict", {
+        method: "POST",
+        body: aiFormData,
+    });
+
+    const imageTagsString = await fastAPI.text();
+    const imageTags = imageTagsString.replaceAll('"', '').split(",");
+
+    await updateInformation(uuid, { imageTags });
+
+    addQueue(`generateMusic [${uuid}]`, async () => {
+        console.log("$$$ AI TASK $$$");
+    });
 }
 
 app.post('/soundscape', async (req, res) => {
@@ -70,20 +105,12 @@ app.post('/soundscape', async (req, res) => {
         await saveInformation(uuid, {
             uuid,
             imageFilename: image.originalFilename,
-            tags: undefined,
+            imageTags: undefined,
             musicFilename: undefined,
         });
 
-        console.log("push parsing to queue");
-        queue.push( async () =>  {
-            console.log("parsing image");
-
-            await (new Promise((resolve) => { setTimeout(resolve, 2000) }));
-
-            console.log("push generating to queue");
-            queue.push(function() {
-                console.log("generating music")
-            });
+        addQueue(`getImageTags [${uuid}]`, async () => {
+            await getImageTags(uuid, newImagePath);
         });
 
         res.json({ uuid });
@@ -104,6 +131,20 @@ app.get('/soundscape/:uuid', async (req, res) => {
 });
 
 app.use('/scapes', express.static('scapes'));
+
+app.post('/test/soundscape/:uuid/getImageTags', async (req, res) => {
+    const uuid = req.params.uuid;
+
+    const info = await loadInformation(uuid);
+    const soundscapeFolder = path.resolve(scapesFolder, uuid);
+    const newImagePath = path.resolve(soundscapeFolder, info.imageFilename);
+
+    addQueue(`Manual getImageTags [${uuid}]`, async () => {
+        await getImageTags(uuid, newImagePath);
+    });
+
+    res.sendStatus(200);
+});
 
 app.get('/mock/predict', (req, res) => {
     return "trees, things, stuff, houses";
