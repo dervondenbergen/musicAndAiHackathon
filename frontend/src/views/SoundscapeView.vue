@@ -1,13 +1,19 @@
 <template>
   <div class="soundscape">
     <h1>This is the Soundscape Page for UUID {{ uuid }}</h1>
+    <img v-if="imagePath" :src="imagePath" />
+    <p v-if="infoJson?.caption">This is how your Images get's described: <b>{{ infoJson.caption }}</b>, #{{ infoJson.imageTags?.join(" #") }}</p>
+    <p v-else-if="infoJson && onImageTags">🔄 Analyzing image...</p>
+    <audio v-if="musicPath" controls :src="musicPath">
+      Your browser does not support the audio element.
+    </audio>
+    <p v-else-if="infoJson && !onImageTags && noMusicFilename">🎵 Generating music...</p>
     <pre>{{ infoJson }}</pre>
-    <button @click="testGetImageTags">getImageTags Test Button</button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps, nextTick, onMounted, ref } from "vue";
+import { computed, defineProps, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 
 const { uuid } = defineProps<{
   uuid: string;
@@ -23,6 +29,18 @@ type SoundscapeInfo = {
 
 const infoJson = ref<SoundscapeInfo>();
 
+const imagePath = computed(() => {
+  if (infoJson.value) {
+    return `http://localhost:3000/scapes/${infoJson.value.uuid}/${infoJson.value.imageFilename}`
+  }
+});
+
+const musicPath = computed(() => {
+  if (infoJson.value?.musicFilename) {
+    return `http://localhost:3000/scapes/${infoJson.value.uuid}/${infoJson.value.musicFilename}`
+  }
+});
+
 const onImageTags = computed(() => {
   return infoJson.value?.imageTags === undefined;
 });
@@ -31,11 +49,12 @@ const noMusicFilename = computed(() => {
 });
 
 const needsRefresh = computed(() => {
-  return onImageTags.value //|| noMusicFilename.value;
+  return onImageTags.value || noMusicFilename.value;
 });
 
+let refreshTimeout: number;
 const scheduleRefresh = () => {
-  setTimeout(async () => {
+  refreshTimeout = setTimeout(async () => {
     await loadInformation();
 
     await nextTick();
@@ -59,11 +78,9 @@ onMounted(async () => {
   }
 });
 
-const testGetImageTags = () => {
-  fetch(`http://localhost:3000/test/soundscape/${uuid}/getImageTags`, {
-    method: "POST",
-  });
-}
+onBeforeUnmount(() => {
+  clearTimeout(refreshTimeout);
+});
 </script>
 
 <style>
@@ -73,5 +90,9 @@ const testGetImageTags = () => {
     display: flex;
     align-items: center;
   }
+}
+
+img {
+  max-width: 300px;
 }
 </style>

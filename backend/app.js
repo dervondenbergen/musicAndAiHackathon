@@ -79,8 +79,31 @@ const getImageTags = async (uuid, newImagePath) =>  {
     await updateInformation(uuid, { imageTags, caption });
 
     addQueue(`generateMusic [${uuid}]`, async () => {
-        console.log("$$$ AI TASK $$$");
+        await generateMusic(uuid, imageTags);
     });
+}
+
+const generateMusic = async (uuid, temporaryTags) => { // could be also caption, if caption results in better results
+    // Fetch the mock music file
+    const response = await fetch("http://localhost:3000/mock/generateMusic");
+    
+    if (!response.ok) {
+        throw new Error(`Failed to generate music: ${response.status}`);
+    }
+    
+    // Create filename based on tags (limit to first 3 tags for reasonable filename length)
+    const tagSubset = temporaryTags.slice(0, 3).join("_").replace(/\s+/g, "_");
+    const musicFilename = `${tagSubset}.mp3`;
+    
+    // Save the music file to the soundscape folder
+    const soundscapeFolder = path.resolve(scapesFolder, uuid);
+    const musicPath = path.resolve(soundscapeFolder, musicFilename);
+    
+    // Write the response directly to file
+    await writeFile(musicPath, Buffer.from(await response.arrayBuffer()));
+    
+    // Update the information with the music filename
+    await updateInformation(uuid, { musicFilename });
 }
 
 app.post('/soundscape', async (req, res) => {
@@ -147,6 +170,8 @@ app.post('/test/soundscape/:uuid/getImageTags', async (req, res) => {
     res.sendStatus(200);
 });
 
+app.get('/mock/generateMusic', (req, res) => {
+    res.sendFile(path.resolve(import.meta.dirname, "test_sound.mp3"));
 })
 
 app.listen(port, () => {
