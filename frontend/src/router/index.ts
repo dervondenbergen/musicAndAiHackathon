@@ -14,7 +14,7 @@ const router = createRouter({
       path: '/soundscape/:uuid',
       name: 'soundscape',
       component: SoundscapeView,
-      props: true,
+      props: true,      
     },
   ],
 })

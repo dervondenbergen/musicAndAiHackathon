@@ -10,12 +10,16 @@
         <button type="submit">Upload and Transform</button>
       </template>
     </form>
+
+    <FileUpload />
   </main>
 </template>
 
 <script setup lang="ts">
 import router from "@/router";
 import {useTemplateRef, ref} from "vue";
+
+import FileUpload from "../components/FileUpload.vue";
 
 const form = useTemplateRef("form");
 const imageInput = useTemplateRef("imageInput");
