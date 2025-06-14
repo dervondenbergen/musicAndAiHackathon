@@ -4,10 +4,10 @@ Open-Source Public Repository for the Music and AI Hackathon 2025.
 ## Team - *Name*
 
 Members (alphabeticaly):
- * Alisa Sumwalt (Frontend)
- * Bhushith Gujjala Hari (AI)
- * Felix De Montis (Frontend, Things)
- * Nona Oi (Backend)
+ * Alisa Sumwalt (Frontend) - @iggyw1g
+ * Bhushith Gujjala Hari (AI) - @teddyboy999
+ * Felix De Montis (Frontend, Things) - @dervondenbergen
+ * Nona Oi (Backend) - @billie-mp4
 
 ## Concept / Idea
 
