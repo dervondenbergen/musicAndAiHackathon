@@ -3,11 +3,11 @@ Open-Source Public Repository for the Music and AI Hackathon 2025.
 
 ## Team - *Name*
 
-Members:
- * Felix De Montis
- * Alisa Sumwalt
- * Nona Oi
- * Bhushith Gujjala Hari
+Members (alphabeticaly):
+ * Alisa Sumwalt (Frontend)
+ * Bhushith Gujjala Hari (AI)
+ * Felix De Montis (Frontend, Things)
+ * Nona Oi (Backend)
 
 ## Concept / Idea
 
@@ -28,6 +28,12 @@ Simple web app which translates images to matching soundscapes. The focus should
 ## Technical Details
 
 ### Tech Stack
+
+* API Backend: Express (NodeJS)
+* Model Backend: FastAPI (maybe for now)
+* Frontend: Vue SPA, Tailwind
+* AI Model: HuggingFace (something image to text)
+* Infrastructure: … ()
 
 ### Transformation
 
