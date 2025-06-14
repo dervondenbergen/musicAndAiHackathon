@@ -27,11 +27,10 @@ def clean_text(text):
     words = text.split()
     words = list(set(words))  # Remove duplicates
     
-    for item in words:
-        if item in unwanted_words:
-            words.remove(item)
+    # Filter out unwanted words (don't modify list while iterating)
+    filtered_words = [word for word in words if word not in unwanted_words]
 
-    return ",".join(words)
+    return ",".join(filtered_words)
 
 
 @app.post("/predict")
