@@ -30,10 +30,10 @@ Simple web app which translates images to matching soundscapes. The focus should
 ### Tech Stack
 
 * API Backend: Express (NodeJS)
-* Model Backend: FastAPI (maybe for now)
+* Model Backend: FastAPI
 * Frontend: VueJS SPA
-* AI Model: HuggingFace (something image to text)
-* Infrastructure: Selfhosted on Uberspace (maybe Vercel?)
+* AI Model: HuggingFace (Salesforce/blip-image-captioning-base model)
+* Infrastructure: Self-hosted on Uberspace (maybe Vercel?)
 
 ### Transformation
 
