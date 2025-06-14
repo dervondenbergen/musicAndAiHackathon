@@ -25,3 +25,9 @@
 {
     font-family: 'Kaspersky Sans', sans-serif;
 }
+
+.parent-container{
+    display:flex;
+    justify-content: center;
+    width:100%;
+}

@@ -124,7 +124,6 @@ const submitForm = (event: Event) => {
   
 }
 
-
 .title {
   
   font-size: 2rem;

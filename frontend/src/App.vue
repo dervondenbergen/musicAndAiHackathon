@@ -4,9 +4,8 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div id="app" class="app-bg">
+<div class = "app-bg">
   <RouterLink  to="/" class = "no-underline"></RouterLink>
-
   <RouterView />
   </div>
 </template>
@@ -18,4 +17,5 @@ import { RouterLink, RouterView } from 'vue-router'
   min-height: 100vh;
   width: 100%;
 }
+
 </style>
