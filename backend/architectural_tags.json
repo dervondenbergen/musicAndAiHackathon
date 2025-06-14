@@ -1,0 +1,671 @@
+{
+  "totalImages": 55,
+  "uniqueTags": [
+    "",
+    "a",
+    "a house with a thatched roof and a flower garden",
+    "a large building on top of a hill",
+    "abu",
+    "across",
+    "against",
+    "aisle",
+    "altar",
+    "apartment",
+    "at",
+    "background",
+    "barcelona",
+    "bird",
+    "blue",
+    "boat",
+    "branches",
+    "bridge",
+    "bright",
+    "building",
+    "buildings",
+    "castle",
+    "cathedral",
+    "ceiling",
+    "ceremony",
+    "chairs",
+    "church",
+    "circular",
+    "city",
+    "clock",
+    "close",
+    "dragon",
+    "flag",
+    "flower",
+    "flying",
+    "forest",
+    "fountain",
+    "from",
+    "garden",
+    "glass",
+    "golden",
+    "gravel",
+    "hanging",
+    "high",
+    "hill",
+    "house",
+    "in",
+    "india",
+    "interior",
+    "large",
+    "leaves",
+    "liberty",
+    "light",
+    "lit",
+    "long",
+    "lot",
+    "made",
+    "many",
+    "middle",
+    "modern",
+    "mosque",
+    "new",
+    "night",
+    "old",
+    "over",
+    "pagoda",
+    "park",
+    "pattern",
+    "person",
+    "petra",
+    "pond",
+    "red",
+    "rise",
+    "river",
+    "roof",
+    "rope",
+    "row",
+    "rows",
+    "saes",
+    "sheikh",
+    "side",
+    "sky",
+    "skyline",
+    "skyscrapers",
+    "small",
+    "spain",
+    "square",
+    "stained",
+    "statue",
+    "steeple",
+    "stone",
+    "street",
+    "surrounded",
+    "ta",
+    "tall",
+    "temple",
+    "thatched",
+    "top",
+    "tower",
+    "treasury",
+    "tree",
+    "uae",
+    "united",
+    "up",
+    "vaulted",
+    "very",
+    "view",
+    "walking",
+    "wedding",
+    "white",
+    "window",
+    "windows",
+    "with",
+    "wood",
+    "wooden",
+    "yellow",
+    "york"
+  ],
+  "allResults": [
+    {
+      "uuid": "07299453-5fed-496c-814d-5cca0e492501",
+      "caption": "a mosque in the middle of a city",
+      "tags": [
+        "middle",
+        "mosque",
+        "city"
+      ]
+    },
+    {
+      "uuid": "0e085519-8d61-4751-8d64-4a9216a0c469",
+      "caption": "a bridge that is lit up at night",
+      "tags": [
+        "up",
+        "bridge",
+        "lit",
+        "night",
+        "at"
+      ]
+    },
+    {
+      "uuid": "1092a747-d210-4a07-81ba-14ce34db3a2b",
+      "caption": "the ta ta ta ta ta ta ta ta ta ta ta ta ta ta ta ta ta ta ta",
+      "tags": [
+        "ta"
+      ]
+    },
+    {
+      "uuid": "11c1434f-6460-4674-bec4-05468134cb01",
+      "caption": "the sheikh sheikh mosque in abu, abu, united",
+      "tags": [
+        "united",
+        "abu",
+        "",
+        "mosque",
+        "sheikh"
+      ]
+    },
+    {
+      "uuid": "1babfc86-223e-4005-ac28-f585bbf5a28e",
+      "caption": "a large stone fountain",
+      "tags": [
+        "large",
+        "stone",
+        "fountain"
+      ]
+    },
+    {
+      "uuid": "1cba9953-81f3-483e-ab5c-52301342bc77",
+      "caption": "a row of modern apartment buildings against a blue sky",
+      "tags": [
+        "apartment",
+        "buildings",
+        "sky",
+        "modern",
+        "against",
+        "blue",
+        "row"
+      ]
+    },
+    {
+      "uuid": "1e251d7a-0601-4391-baa2-443a786b61c8",
+      "caption": "a very old temple in india",
+      "tags": [
+        "old",
+        "india",
+        "temple",
+        "very"
+      ]
+    },
+    {
+      "uuid": "24fb5b20-097a-4a8d-a742-34807865d03a",
+      "tags": [
+        "in",
+        "yellow",
+        "pagoda",
+        "pond",
+        "middle"
+      ]
+    },
+    {
+      "uuid": "2f425dfb-2fd7-4b06-8613-e4e5ff63f7d0",
+      "caption": "a building with a blue sky in the background",
+      "tags": [
+        "sky",
+        "background",
+        "blue",
+        "building"
+      ]
+    },
+    {
+      "uuid": "2f731c68-d88f-482f-a139-6c5fe764eeac",
+      "tags": [
+        "thatched",
+        "roof",
+        "garden",
+        "house",
+        "flower",
+        "with"
+      ]
+    },
+    {
+      "uuid": "2f97d45f-41b6-4b98-9b79-12d3dc918db9",
+      "caption": "a golden building with a red roof",
+      "tags": [
+        "roof",
+        "golden",
+        "building",
+        "red"
+      ]
+    },
+    {
+      "uuid": "34112f0c-2f94-4f4f-96e7-6640def1e58d",
+      "caption": "a building with a lot of wood on the side",
+      "tags": [
+        "wood",
+        "lot",
+        "side",
+        "building"
+      ]
+    },
+    {
+      "uuid": "35961bdd-867e-4949-bba8-6c7293573f17",
+      "caption": "a view of the sky from a high rise of buildings",
+      "tags": [
+        "buildings",
+        "rise",
+        "sky",
+        "from",
+        "view",
+        "high"
+      ]
+    },
+    {
+      "uuid": "40d1dc27-d429-4bc9-a38d-b0fbd45b0a7c",
+      "caption": "a bird flying over a building with many windows",
+      "tags": [
+        "over",
+        "flying",
+        "many",
+        "windows",
+        "bird",
+        "building"
+      ]
+    },
+    {
+      "uuid": "4b519447-5fb4-49e9-9aa6-87b11a333c34",
+      "caption": "a church with a large window and a long aisle",
+      "tags": [
+        "large",
+        "window",
+        "aisle",
+        "long",
+        "church"
+      ]
+    },
+    {
+      "uuid": "4bfb8f17-60e8-403d-a033-6c03afbf2147",
+      "caption": "a bridge with a person walking across it",
+      "tags": [
+        "bridge",
+        "person",
+        "across",
+        "walking"
+      ]
+    },
+    {
+      "uuid": "4f1e1390-b446-419a-ad35-0719085512d5",
+      "caption": "a church with rows of wooden chairs and a large window",
+      "tags": [
+        "large",
+        "window",
+        "wooden",
+        "rows",
+        "church",
+        "chairs"
+      ]
+    },
+    {
+      "uuid": "52f03a15-3be2-4052-a182-573679faec01",
+      "caption": "sheikh sheikh mosque in abu, uae",
+      "tags": [
+        "uae",
+        "abu",
+        "",
+        "mosque",
+        "sheikh"
+      ]
+    },
+    {
+      "uuid": "5535f45d-e484-440e-8867-170e5b5e61c6",
+      "caption": "a large cathedral with a clock on the side",
+      "tags": [
+        "large",
+        "cathedral",
+        "clock",
+        "side"
+      ]
+    },
+    {
+      "uuid": "59471dbc-dc8f-41f7-83a7-412d63d67154",
+      "caption": "the statue of liberty",
+      "tags": [
+        "statue",
+        "liberty"
+      ]
+    },
+    {
+      "uuid": "609ce7ff-ae6a-483a-a3f5-68d142dd73da",
+      "caption": "a statue of a dragon on the roof of a building",
+      "tags": [
+        "dragon",
+        "statue",
+        "roof",
+        "building"
+      ]
+    },
+    {
+      "uuid": "633da2ef-0c55-4ae1-9803-9caac86a8857",
+      "caption": "the treasury in petra petra petra petra petra petra petra petra petra petra petra petra petra petra petra petra petra",
+      "tags": [
+        "treasury",
+        "petra"
+      ]
+    },
+    {
+      "uuid": "649e9e4f-0be1-4cac-a974-46e37ef78e2e",
+      "caption": "a church with a large ceiling and a large altar",
+      "tags": [
+        "large",
+        "altar",
+        "church",
+        "ceiling"
+      ]
+    },
+    {
+      "uuid": "64e7ee4f-68ce-4e79-b204-03cdc9324443",
+      "tags": [
+        "a house with a thatched roof and a flower garden"
+      ]
+    },
+    {
+      "uuid": "687ace2d-193e-40c6-a8d5-8d3ef4230a73",
+      "caption": "a tall tower with a flag on top",
+      "tags": [
+        "tower",
+        "flag",
+        "top",
+        "tall"
+      ]
+    },
+    {
+      "uuid": "6aec15ce-b538-4e6f-927f-1904750a035f",
+      "caption": "the interior of a church with a stained stained window",
+      "tags": [
+        "window",
+        "interior",
+        "church",
+        "stained"
+      ]
+    },
+    {
+      "uuid": "745b7740-dffb-4a9f-870b-ad84dec90559",
+      "caption": "a pagoda tower in the middle of a park",
+      "tags": [
+        "park",
+        "middle",
+        "tower",
+        "pagoda"
+      ]
+    },
+    {
+      "uuid": "74b99e65-9f0e-4f37-bcec-5fa2447dbeb9",
+      "caption": "the saes castle in barcelona, spain",
+      "tags": [
+        "saes",
+        "castle",
+        "barcelona",
+        "",
+        "spain"
+      ]
+    },
+    {
+      "uuid": "7be6920f-82c3-4436-90d6-88b9d081f152",
+      "caption": "a church with a large vaulted ceiling and a stained glass window",
+      "tags": [
+        "large",
+        "window",
+        "church",
+        "stained",
+        "ceiling",
+        "vaulted",
+        "glass"
+      ]
+    },
+    {
+      "uuid": "823a8643-656a-4baf-8cda-1bc194fec754",
+      "caption": "a city skyline with tall buildings and skyscrapers",
+      "tags": [
+        "skyscrapers",
+        "buildings",
+        "skyline",
+        "city",
+        "tall"
+      ]
+    },
+    {
+      "uuid": "83ee1fdc-0a58-4855-bb04-aa0d1313c246",
+      "caption": "a pagoda in the middle of a forest",
+      "tags": [
+        "middle",
+        "forest",
+        "pagoda"
+      ]
+    },
+    {
+      "uuid": "843d2a11-ad88-4d4f-9560-02ce623aafc4",
+      "caption": "a large white building",
+      "tags": [
+        "large",
+        "building",
+        "white"
+      ]
+    },
+    {
+      "uuid": "86a0f606-04be-447f-b3df-0f9c9f052ca2",
+      "caption": "a tall building with a very large window",
+      "tags": [
+        "large",
+        "window",
+        "very",
+        "tall",
+        "building"
+      ]
+    },
+    {
+      "uuid": "934665b9-9f2f-4fb6-8221-179e8ff448db",
+      "caption": "skyscrapers in new york",
+      "tags": [
+        "skyscrapers",
+        "york",
+        "new"
+      ]
+    },
+    {
+      "uuid": "9562c6f0-a542-499a-8fc2-02a76f8419c6",
+      "caption": "a close up of a roof with a blue sky in the background",
+      "tags": [
+        "up",
+        "sky",
+        "background",
+        "blue",
+        "close",
+        "roof"
+      ]
+    },
+    {
+      "uuid": "9a288c23-edd2-4ae8-b0dc-ae1ac4d37c98",
+      "caption": "a wedding ceremony at the church",
+      "tags": [
+        "wedding",
+        "church",
+        "ceremony",
+        "at"
+      ]
+    },
+    {
+      "uuid": "9e43f200-2fa7-4d85-8c3e-9286606bc60a",
+      "caption": "a pagoda in the middle of a forest",
+      "tags": [
+        "middle",
+        "in",
+        "forest",
+        "pagoda"
+      ]
+    },
+    {
+      "uuid": "a2230daa-c855-4aaa-a9e2-eea5577ae934",
+      "caption": "a large building on top of a hill",
+      "tags": [
+        "building",
+        "hill",
+        "large",
+        "top",
+        "a"
+      ]
+    },
+    {
+      "uuid": "b137d8e3-42a7-4d1c-bd1b-daa83bee7bb2",
+      "tags": "\"a,forest,pagoda,middle,in\""
+    },
+    {
+      "uuid": "b4c08e14-cffe-4680-a738-b44c51baa1d0",
+      "caption": "a golden building with a red roof",
+      "tags": [
+        "roof",
+        "golden",
+        "building",
+        "red"
+      ]
+    },
+    {
+      "uuid": "b8c8bee6-d905-4e33-8140-4f3827669432",
+      "tags": [
+        "a large building on top of a hill"
+      ]
+    },
+    {
+      "uuid": "b9decaea-6a90-44f8-92ce-0adb0d077003",
+      "caption": "a circular pattern made from gravel",
+      "tags": [
+        "gravel",
+        "made",
+        "circular",
+        "from",
+        "pattern"
+      ]
+    },
+    {
+      "uuid": "bf996708-7130-4730-aba3-be1fed84be8f",
+      "caption": "a statue of a dragon on the roof of a building",
+      "tags": [
+        "dragon",
+        "statue",
+        "roof",
+        "building"
+      ]
+    },
+    {
+      "uuid": "c58e82a8-29f3-4010-827e-113d49ef319f",
+      "caption": "a small house in the middle of a forest",
+      "tags": [
+        "middle",
+        "forest",
+        "small",
+        "house"
+      ]
+    },
+    {
+      "uuid": "c8915eef-cad0-45bf-92a9-1bb2f4aa87c9",
+      "caption": "a large tree in the middle of a square",
+      "tags": [
+        "large",
+        "middle",
+        "square",
+        "tree"
+      ]
+    },
+    {
+      "uuid": "c8a3a282-a181-47d9-8c40-8419f6e3516a",
+      "caption": "skyscrapers in the city",
+      "tags": [
+        "skyscrapers",
+        "city"
+      ]
+    },
+    {
+      "uuid": "ceee69cd-5e79-4135-95b6-bc8b4804adaf",
+      "caption": "a large church with a steeple on the top",
+      "tags": [
+        "large",
+        "steeple",
+        "church",
+        "top"
+      ]
+    },
+    {
+      "uuid": "d31e05fb-c18a-4261-8084-34da0c9cfe46",
+      "caption": "a pagoda tower in the middle of a park",
+      "tags": [
+        "park",
+        "middle",
+        "tower",
+        "pagoda"
+      ]
+    },
+    {
+      "uuid": "db5a24fd-df09-4cf2-9179-1367578ab478",
+      "caption": "a large window with a clock on it",
+      "tags": [
+        "large",
+        "window",
+        "clock"
+      ]
+    },
+    {
+      "uuid": "dc5af531-e568-46c7-8e9e-0008740cbe4b",
+      "caption": "a bridge over a river",
+      "tags": [
+        "over",
+        "bridge",
+        "river"
+      ]
+    },
+    {
+      "uuid": "dc8f77bb-f07c-4a89-a3aa-3c48c571c64c",
+      "caption": "a pagoda in the middle of a forest",
+      "tags": [
+        "middle",
+        "in",
+        "forest",
+        "pagoda"
+      ]
+    },
+    {
+      "uuid": "dfc99a2b-2e43-4679-beda-27d975d93678",
+      "tags": [
+        "in",
+        "forest",
+        "middle",
+        "pagoda"
+      ]
+    },
+    {
+      "uuid": "e6fe6925-09a6-4fcc-b870-caa000676d36",
+      "caption": "a street light is surrounded by leaves and branches",
+      "tags": [
+        "leaves",
+        "street",
+        "surrounded",
+        "light",
+        "branches"
+      ]
+    },
+    {
+      "uuid": "f2d9d5ff-3204-48ed-a145-a1d1b6a78090",
+      "caption": "a river in the middle of a forest with a bright red tree",
+      "tags": [
+        "middle",
+        "forest",
+        "river",
+        "tree",
+        "bright",
+        "red"
+      ]
+    },
+    {
+      "uuid": "fb1ceee0-d332-48dc-a0f4-20591e9a5ceb",
+      "caption": "a boat with a rope hanging from the side",
+      "tags": [
+        "rope",
+        "boat",
+        "from",
+        "side",
+        "hanging"
+      ]
+    }
+  ]
+}
