@@ -4,6 +4,7 @@ from PIL import Image
 import io
 import torch
 from transformers import BlipProcessor, BlipForConditionalGeneration
+import json
 
 # Load the model and processor once at startup
 processor = BlipProcessor.from_pretrained("blip/processor")
@@ -51,9 +52,14 @@ async def predict(image: UploadFile = File(...)):
         print(caption)
 
         # Clean the caption
-        caption = clean_text(caption)
+        tags = clean_text(caption)
 
-        return caption
+        data = {
+            'caption': caption,
+            'tags': tags,
+        }
+
+        return data
     
     except Exception as e:
         return {"error": str(e)}

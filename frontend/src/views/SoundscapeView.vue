@@ -17,6 +17,7 @@ type SoundscapeInfo = {
   uuid: string;
   imageFilename: string;
   imageTags?: Array<string>;
+  caption?: string;
   musicFilename?: string;
 }
 
@@ -59,7 +60,7 @@ onMounted(async () => {
 });
 
 const testGetImageTags = () => {
-  fetch(`http://localhost:3000/test/soundscape/${uuid}/testGetImageTags`, {
+  fetch(`http://localhost:3000/test/soundscape/${uuid}/getImageTags`, {
     method: "POST",
   });
 }

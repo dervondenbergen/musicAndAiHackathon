@@ -72,10 +72,11 @@ const getImageTags = async (uuid, newImagePath) =>  {
         body: aiFormData,
     });
 
-    const imageTagsString = await fastAPI.text();
-    const imageTags = imageTagsString.replaceAll('"', '').split(",");
+    const imageInfo = await fastAPI.json();
+    const imageTags = imageInfo.tags.split(",").map(s => s.trim());
+    const caption = imageInfo.caption;
 
-    await updateInformation(uuid, { imageTags });
+    await updateInformation(uuid, { imageTags, caption });
 
     addQueue(`generateMusic [${uuid}]`, async () => {
         console.log("$$$ AI TASK $$$");
@@ -146,8 +147,6 @@ app.post('/test/soundscape/:uuid/getImageTags', async (req, res) => {
     res.sendStatus(200);
 });
 
-app.get('/mock/predict', (req, res) => {
-    return "trees, things, stuff, houses";
 })
 
 app.listen(port, () => {
