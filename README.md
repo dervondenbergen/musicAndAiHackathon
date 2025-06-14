@@ -1,7 +1,7 @@
-# musicAndAiHackathon (*replace with app name*) 
-Open-Source Public Repository for the Music and AI Hackathon 2025. 
+# Architecture Soundscapes
+Open-Source Public Repository for the Music and AI Hackathon 2025. Challenge #3: Culture & Music
 
-## Team - *Name*
+## Team - Pompompurin
 
 Members (alphabeticaly):
  * Alisa Sumwalt (Frontend) - @iggyw1g
@@ -11,7 +11,7 @@ Members (alphabeticaly):
 
 ## Concept / Idea
 
-**Image to Soundscape**
+**Architecture Image to Soundscape**
 
 Simple web app which translates images to matching soundscapes. The focus should be on Buildings and Architecture, where destinctiv features of a building and its surroundings are the input for the transformation. Each piece of information gets either matched to an existing sound, to create the mood and vibe of the image, catching the ambiance of the photo.
 
@@ -31,10 +31,16 @@ Simple web app which translates images to matching soundscapes. The focus should
 
 * API Backend: Express (NodeJS)
 * Model Backend: FastAPI (maybe for now)
-* Frontend: Vue SPA, Tailwind
+* Frontend: VueJS SPA
 * AI Model: HuggingFace (something image to text)
-* Infrastructure: … ()
+* Infrastructure: Selfhosted on Uberspace (maybe Vercel?)
 
 ### Transformation
 
-### 
+…
+
+#### Prompt
+
+…
+
+#### Sounds
