@@ -16,10 +16,10 @@
                         timeElapsed = info.timestamp;
                         const colorStops = [],
                         offset = timeElapsed / 10 % 360;
-                        
+
                         for ( let i = 360; i >= 0; i -= 60 )
                         colorStops.push( `hsl( ${ offset + i }, 100%, 50% )` );
-                        
+
                         // re-register gradient
                         analyzer.registerGradient( 'rainbow', {
                                     dir: 'h',
@@ -29,11 +29,11 @@
                 }
 
                 // audio source
-                const audioEl = document.getElementById('audio');
+                const audioEl = document.querySelector('audio');
 
                 // instantiate analyzer
                 const audioMotion = new AudioMotionAnalyzer(
-                    document.getElementById('container'),
+                    document.getElementsByClassName('ult-div'),
                     {
                         source: audioEl,
                         height: window.innerHeight - 50,
