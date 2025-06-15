@@ -1,41 +1,41 @@
-<template class="soundscape">
-    <h1 class="font">{{ uuid }}</h1>
-<div class = "ult-div">
+<template>
+  <div class="soundscape">
+    <h1 class="font">{{ infoJson?.caption ?? "AI is working ✨" }}</h1>
     <!-- <p v-if="infoJson?.caption">This is how your Images get's described: <b>{{ infoJson.caption }}</b>, #{{ infoJson.imageTags?.join(" #") }}</p> -->
-  <!-- <AudioVis /> -->
-  <img v-if="imagePath" :src="imagePath" />
-</div>
+    <!-- <AudioVis /> -->
+    <img v-if="imagePath" :src="imagePath" class="uploaded-image" />
     <!-- <p v-if="infoJson && onImageTags">🔄 Analyzing image...</p>
     <p v-else-if="infoJson && !onImageTags && noMusicFilename">🎵 Generating music...</p> -->
     <template v-if="musicPath">
-      <audio v-if="musicPath" controls :src="musicPath">
+      <audio v-if="musicPath" loop controls :src="musicPath" class="audio-element" ref="audio">
         Your browser does not support the audio element.
       </audio>
       <div class="mp3-player">
         <div class="progress-container">
             <div class="progress-bar">
-                <div class="progress"></div>
+                <div class="progress" :style="{'--progress': progressValue}"></div>
             </div>
         </div>
         <div class="controls">
-            <div class="control-btn"><i class="pi pi-angle-double-left"></i></div>
-            <div class="control-btn play-btn"><i class="pi pi-caret-right"></i></div>
-            <div class="control-btn"><i class="pi pi-angle-left"></i></div>
-            <div class="control-btn"><i class="pi pi-angle-right"></i></div>
-            <div class="control-btn"><i class="pi pi-angle-double-right"></i></div>
+            <!-- <div class="control-btn"><i class="pi pi-angle-double-left"></i></div>
+            <div class="control-btn"><i class="pi pi-angle-left"></i></div> -->
+            <div class="control-btn play-btn" @click="onPlayPause"><i class="pi" :class="playbackClass"></i></div>
+            <!-- <div class="control-btn"><i class="pi pi-angle-right"></i></div>
+            <div class="control-btn"><i class="pi pi-angle-double-right"></i></div> -->
         </div>
-        <div class="volume-control">
+        <!-- <div class="volume-control">
             <span><i class = "pi pi-volume-up"></i></span>
             <div class="volume-bar">
                 <div class="volume-progress"></div>
             </div>
-        </div>
+        </div> -->
     </div>
     </template>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { computed, defineProps, nextTick, onBeforeUnmount, onMounted, ref } from "vue";
+import { computed, defineProps, nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef } from "vue";
 
 const { uuid } = defineProps<{
   uuid: string;
@@ -92,6 +92,29 @@ const loadInformation = async () => {
   infoJson.value = (await info.json()) as SoundscapeInfo;
 }
 
+const audioElement = useTemplateRef("audio");
+const playbackClass = ref("pi-caret-right");
+
+var progressValue = ref("0%");
+var playbackUpdaterInterval;
+
+const onPlayPause = () => {
+  const element = audioElement.value;
+  if (element) {
+    if (element.paused) {
+      element.play();
+      playbackClass.value = "pi-pause";
+      playbackUpdaterInterval = setInterval(() => {
+        progressValue.value = `${Math.round(element.currentTime / element.duration * 100)}%`
+      }, 100);
+    } else {
+      element.pause();
+      playbackClass.value = "pi-caret-right";
+      clearInterval(playbackUpdaterInterval);
+    }
+  }
+}
+
 onMounted(async () => {
   await loadInformation();
 
@@ -102,6 +125,7 @@ onMounted(async () => {
 
 onBeforeUnmount(() => {
   clearTimeout(refreshTimeout);
+  clearInterval(playbackUpdaterInterval);
 });
 </script>
 
@@ -109,13 +133,27 @@ onBeforeUnmount(() => {
 .soundscape {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    padding-top: 150px;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem;
+}
+
+.uploaded-image {
+  max-width: 100%;
+  width: 20rem;
+}
+
+.audio-element {
+  display: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .font {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-align: center;
+    margin: 0;
 }
 
 .mp3-player {
@@ -125,7 +163,6 @@ onBeforeUnmount(() => {
     border-radius: 12px;
     padding: 15px 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-top: 35rem;
 }
 
 .progress-container {
@@ -143,12 +180,12 @@ onBeforeUnmount(() => {
 
 .progress {
     height: 100%;
-    width: 30%;
+    width: var(--progress);
     background: linear-gradient(to right, #667eea, #7d0cee);
     border-radius: 1px;
     position: relative;
 }
-
+/*
 .progress::after {
     content: '';
     position: absolute;
@@ -160,7 +197,7 @@ onBeforeUnmount(() => {
     background: white;
     border-radius: 50%;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-}
+} */
 
 .time {
     display: flex;
@@ -179,8 +216,8 @@ onBeforeUnmount(() => {
 }
 
 .control-btn {
-    width: 28px;
-    height: 28px;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -189,6 +226,10 @@ onBeforeUnmount(() => {
     transition: all 0.2s;
     background: rgba(245, 245, 245, 0.8);
     font-size: 12px;
+}
+
+.control-btn i {
+  font-size: 2rem;
 }
 
 .control-btn:hover {
