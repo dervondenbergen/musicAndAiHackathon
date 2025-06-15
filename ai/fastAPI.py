@@ -82,7 +82,7 @@ AUDIO_MAPPING = {
     "dragon": ["../backend/sounds_cache/dragon_0.mp3"],
     "echo": ["../backend/sounds_cache/echo_0.mp3"],
     "fire": ["../backend/sounds_cache/fire_0.mp3"],
-    "forest": ["../backend/sounds_cache/forest_0.mp3"],
+    "forest": ["../backend/sounds_cache/forest_manual.mp3"],
     "fountain": ["../backend/sounds_cache/fountain_0.mp3"],
     "garden": ["../backend/sounds_cache/garden_0.mp3"],
     "glass": ["../backend/sounds_cache/glass_0.mp3"],
@@ -97,7 +97,7 @@ AUDIO_MAPPING = {
     "square": ["../backend/sounds_cache/square_0.mp3"],
     "statue": ["../backend/sounds_cache/statue_0.mp3"],
     "stone": ["../backend/sounds_cache/stone_0.mp3"],
-    "temple": ["../backend/sounds_cache/temple_0.mp3"],
+    "temple": ["../backend/sounds_cache/temple_manual.mp3"],
     "tower": ["../backend/sounds_cache/tower_0.mp3"],
     "tree": ["../backend/sounds_cache/tree_0.mp3"],
     "water": ["../backend/sounds_cache/water_0.mp3"],
@@ -123,7 +123,7 @@ async def generateMusic(keywordString):
         # Skip Audio for files that weren't found.
         
         # Combine audio files
-        output_file = "combined_soundscape.mp3"
+        output_file = "output/" + "_".join(keywords) + ".mp3"
         combine_audio_files(audio_files, output_file, mode="overlay", duration_ms=15000)
         
         # Return the MP3
