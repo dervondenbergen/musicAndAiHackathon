@@ -1,7 +1,7 @@
 <template class="soundscape">
     <h1 class="font">{{ uuid }}</h1>
 <div class = "ult-div">
-  visualizer placement
+  <AudioVis />
   <span class = "ult-span"></span>
 </div>
     <div class="mp3-player">
