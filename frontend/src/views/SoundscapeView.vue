@@ -1,11 +1,17 @@
 <template class="soundscape">
     <h1 class="font">{{ uuid }}</h1>
 <div class = "ult-div">
-    <p v-if="infoJson?.caption">This is how your Images get's described: <b>{{ infoJson.caption }}</b>, #{{ infoJson.imageTags?.join(" #") }}</p>
-  <AudioVis />
-  <span class = "ult-span"></span>
+    <!-- <p v-if="infoJson?.caption">This is how your Images get's described: <b>{{ infoJson.caption }}</b>, #{{ infoJson.imageTags?.join(" #") }}</p> -->
+  <!-- <AudioVis /> -->
+  <img v-if="imagePath" :src="imagePath" />
 </div>
-    <div class="mp3-player">
+    <!-- <p v-if="infoJson && onImageTags">🔄 Analyzing image...</p>
+    <p v-else-if="infoJson && !onImageTags && noMusicFilename">🎵 Generating music...</p> -->
+    <template v-if="musicPath">
+      <audio v-if="musicPath" controls :src="musicPath">
+        Your browser does not support the audio element.
+      </audio>
+      <div class="mp3-player">
         <div class="progress-container">
             <div class="progress-bar">
                 <div class="progress"></div>
@@ -25,13 +31,7 @@
             </div>
         </div>
     </div>
-    <p v-else-if="infoJson && onImageTags">🔄 Analyzing image...</p>
-    <audio v-if="musicPath" controls :src="musicPath">
-      Your browser does not support the audio element.
-    </audio>
-    <p v-else-if="infoJson && !onImageTags && noMusicFilename">🎵 Generating music...</p>
-    <pre>{{ infoJson }}</pre>
-    <img v-if="imagePath" :src="imagePath" />
+    </template>
 </template>
 
 <script setup lang="ts">
@@ -110,7 +110,7 @@ onBeforeUnmount(() => {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding-top: 150px; 
+    padding-top: 150px;
 }
 
 .font {
