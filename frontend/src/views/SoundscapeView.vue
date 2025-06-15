@@ -1,10 +1,9 @@
 <template class="soundscape">
-
- <div class="image-preview-container">
-            <img alt="Selected preview" class="preview-image">
- </div>
-
     <h1 class="font">{{ uuid }}</h1>
+<div class = "ult-div">
+  visualizer placement
+  <span class = "ult-span"></span>
+</div>
     <div class="mp3-player">
         <div class="progress-container">
             <div class="progress-bar">
@@ -56,7 +55,7 @@ const { uuid } = defineProps<{
     border-radius: 12px;
     padding: 15px 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-top: 40rem;
+    margin-top: 35rem;
 }
 
 .progress-container {
@@ -148,5 +147,14 @@ const { uuid } = defineProps<{
     background: linear-gradient(to right, #667eea, #764ba2);
     border-radius: 1px;
 }
-
+.ult-div {
+  text-align: center;
+  position: relative;
+  color: black;
+}
+.ult-span {
+  position: absolute;
+  top: 50%; right: 0;
+  transform: translateY(-50%);
+}
 </style>

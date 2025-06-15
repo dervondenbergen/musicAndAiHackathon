@@ -218,21 +218,6 @@ const submitForm = (event: Event) => {
   display: none;
 }
 
-.image-preview-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.preview-image {
-  max-width: 100%;
-  max-height: 400px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
-}
-
 .button-group {
   display: flex;
   gap: 1rem;

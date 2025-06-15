@@ -32,13 +32,13 @@
     width:100%;
 }
 
+
 .image-preview-container {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 
 .preview-image {
   max-width: 100%;
