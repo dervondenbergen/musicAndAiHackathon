@@ -86,7 +86,8 @@ const getImageTags = async (uuid, newImagePath) =>  {
     await updateInformation(uuid, { imageTags, caption });
 
     addQueue(`generateCombinedSound [${uuid}]`, async () => {
-        await generateCombinedSound(uuid, imageTags);
+        // await generateCombinedSound(uuid, imageTags);
+        await generateMusic(uuid, imageTags);
     });
 }
 
@@ -197,7 +198,9 @@ const generateCombinedSound = async (uuid, temporaryTags) => {
 
 const generateMusic = async (uuid, temporaryTags) => { // could be also caption, if caption results in better results
     // Fetch the mock music file
-    const response = await fetch("http://localhost:3000/mock/generateMusic");
+    const response = await fetch(`http://localhost:8000/generateMusic?keywordString=${temporaryTags.join(',')}`, {
+        method: "POST",
+    });
     
     if (!response.ok) {
         throw new Error(`Failed to generate music: ${response.status}`);
@@ -293,7 +296,8 @@ app.post('/test/soundscape/:uuid/generateCombinedSound', async (req, res) => {
         }
 
         addQueue(`Manual generateCombinedSound [${uuid}]`, async () => {
-            await generateCombinedSound(uuid, info.imageTags);
+            // await generateCombinedSound(uuid, info.imageTags);
+            await generateMusic(uuid, imageTags);
         });
 
         res.json({ message: 'Sound generation queued', uuid, tags: info.imageTags });
