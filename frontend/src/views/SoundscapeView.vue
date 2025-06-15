@@ -1,13 +1,14 @@
 <template class="soundscape">
+
+ <div class="image-preview-container">
+            <img alt="Selected preview" class="preview-image">
+ </div>
+
     <h1 class="font">{{ uuid }}</h1>
     <div class="mp3-player">
         <div class="progress-container">
             <div class="progress-bar">
                 <div class="progress"></div>
-            </div>
-            <div class="time">
-                <span>1:23</span>
-                <span>3:45</span>
             </div>
         </div>
         <div class="controls">
@@ -24,6 +25,7 @@
             </div>
         </div>
     </div>
+    <img class= "music-container"></img>
 </template>
 
 <script setup lang="ts">
@@ -39,22 +41,22 @@ const { uuid } = defineProps<{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding-top: 150px; /* Pushed way down */
+    padding-top: 150px; 
 }
 
 .font {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-bottom: 40px; /* Space between title and player */
     text-align: center;
 }
 
 .mp3-player {
-    width: 400px; /* Still wide but thinner profile */
+    width: 500px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 12px;
     padding: 15px 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 40rem;
 }
 
 .progress-container {
@@ -146,4 +148,5 @@ const { uuid } = defineProps<{
     background: linear-gradient(to right, #667eea, #764ba2);
     border-radius: 1px;
 }
+
 </style>

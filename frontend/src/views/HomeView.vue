@@ -94,10 +94,10 @@ const submitForm = (event: Event) => {
   const formData = new FormData();
   formData.append("image", imageInput.value.files[0]);
 
-  // TODO: Send to backend
+
   console.log(formData);
 
-  // Simulate API call
+  
   setTimeout(() => {
     router.push({
       name: "soundscape",
