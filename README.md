@@ -31,6 +31,7 @@ How to start everything: (needs cleanup before end of hackathon)
 * `uvicorn fastAPI:app --reload` in the `ai` folder
 * `npm run start` in the `backend` folder
 * `npm run dev` in the `frontend` folder
+* `uvicorn fastAPI:app --reload` to run the FastAPI Python Backend
 
 ### Tech Stack
 
@@ -42,10 +43,17 @@ How to start everything: (needs cleanup before end of hackathon)
 
 ### Transformation
 
+1. Blip is used to summarize the details of the image with a caption.
+2. The caption is then reduced to a few keywords.
+3. Sounds for those keywords are then gathered and combined into a final .mp3 file.
+4. The user can see, listen to, and download the final combined soundscape bringing their image to life.
+
 …
 
 #### Prompt
+The model prompt is as simple as "Describe the following image in a few detailed keywords:"
 
 …
 
 #### Sounds
+1. We get our sounds from freesound.org through its API.
