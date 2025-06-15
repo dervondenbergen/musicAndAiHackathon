@@ -52,16 +52,6 @@
                     audioEl.src = '../../../../backend/test_sound.mp3';
                     audioEl.play();
                 });
-
-                // file upload
-                document.getElementById('upload').addEventListener( 'change', e => {
-                    const fileBlob = e.target.files[0];
-
-                    if ( fileBlob ) {
-                        audioEl.src = URL.createObjectURL( fileBlob );
-                        audioEl.play();
-                    }
-                })
             }
         }
     }
