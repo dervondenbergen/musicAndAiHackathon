@@ -22,9 +22,10 @@ services:
     healthCheckPath: /health
 
   # Frontend Static Site
-  - type: static
+  - type: web
+    runtime: static
     name: architecture-soundscapes-frontend
-    buildCommand: npm install && npm run build
+    buildCommand: npm install && npm run build-only
     staticPublishPath: ./dist
     envVars:
       - key: VITE_API_URL
