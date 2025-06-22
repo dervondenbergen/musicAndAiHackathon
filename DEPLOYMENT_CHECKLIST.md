@@ -18,11 +18,11 @@
 - [x] Add health check endpoint
 
 ### 3. AI Service Updates  
-- [ ] Add environment variable support in fastAPI.py
-- [ ] Fix relative paths to use absolute paths
-- [ ] Create download-model.sh script
-- [ ] Update Dockerfile for AI service
-- [ ] Add health check endpoint
+- [x] Add environment variable support in fastAPI.py
+- [x] Fix relative paths to use absolute paths
+- [x] Create download-model.sh script
+- [x] Update Dockerfile for AI service
+- [x] Add health check endpoint
 
 ### 4. Frontend Updates
 - [ ] Create .env.production file
