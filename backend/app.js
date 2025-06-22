@@ -12,10 +12,12 @@ import { constants } from 'node:fs';
 ffmpeg.setFfmpegPath(ffmpegPath.path);
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
+const AI_SERVICE_URL = process.env.AI_SERVICE_URL || 'http://localhost:8000'
+const CORS_ORIGIN = process.env.CORS_ORIGIN || '*'
 
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*"); // should not be * but okay for prototype
+    res.header("Access-Control-Allow-Origin", CORS_ORIGIN);
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
@@ -23,6 +25,10 @@ app.use(function(req, res, next) {
 app.get('/', (req, res) => {
     res.setHeader("Content-Type", "text/plain");
     res.send('Architecture Soundscapes API.\n\nSee https://github.com/dervondenbergen/musicAndAiHackathon/tree/main/backend for more details.')
+});
+
+app.get('/health', (req, res) => {
+    res.json({ status: 'healthy', service: 'backend' });
 });
 
 const queue = [];
@@ -74,7 +80,7 @@ const getImageTags = async (uuid, newImagePath) =>  {
     const blob = new Blob([imageBuffer], { type: 'image/jpeg' });
     aiFormData.append("image", blob, path.basename(newImagePath));
 
-    const fastAPI = await fetch("http://localhost:8000/predict", {
+    const fastAPI = await fetch(`${AI_SERVICE_URL}/predict`, {
         method: "POST",
         body: aiFormData,
     });
@@ -198,7 +204,7 @@ const generateCombinedSound = async (uuid, temporaryTags) => {
 
 const generateMusic = async (uuid, temporaryTags) => { // could be also caption, if caption results in better results
     // Fetch the mock music file
-    const response = await fetch(`http://localhost:8000/generateMusic?keywordString=${temporaryTags.join(',')}`, {
+    const response = await fetch(`${AI_SERVICE_URL}/generateMusic?keywordString=${temporaryTags.join(',')}`, {
         method: "POST",
     });
     

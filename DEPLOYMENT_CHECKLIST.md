@@ -12,10 +12,10 @@
 - [ ] Remove any accidentally committed sound/model files
 
 ### 2. Backend Service Updates
-- [ ] Add environment variable support in app.js
-- [ ] Create download-sounds.sh script
+- [x] Add environment variable support in app.js
+- [x] Create download-sounds.sh script
 - [ ] Update Dockerfile for backend
-- [ ] Add health check endpoint
+- [x] Add health check endpoint
 
 ### 3. AI Service Updates  
 - [ ] Add environment variable support in fastAPI.py
