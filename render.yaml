@@ -5,42 +5,27 @@ services:
     runtime: docker
     dockerfilePath: ./Dockerfile
     envVars:
-      # Service configuration
       - key: PORT
         value: 3000
       - key: AI_SERVICE_URL
         value: http://localhost:8000
       - key: CORS_ORIGIN
-        fromService:
-          type: web
-          name: architecture-soundscapes-frontend
-          property: host
-      # Shared paths (both services use these)
+        value: "*"  # Simplified - will update manually after deployment
       - key: SOUNDS_CACHE_PATH
         value: /app/sounds_cache
       - key: MODEL_PATH
         value: /app/ai/blip
-      # Download URLs (set these in Render dashboard)
       - key: SOUNDS_CACHE_URL
         sync: false  # Set this in Render dashboard
       - key: MODEL_URL
-        sync: false  # Optional: Set this in Render dashboard if using external model
+        sync: false  # Optional
     healthCheckPath: /health
 
   # Frontend Static Site
-  - type: web
+  - type: static
     name: architecture-soundscapes-frontend
-    runtime: static
-    rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: architecture-soundscapes-backend
-          property: host
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+        value: "https://architecture-soundscapes-backend.onrender.com"  # Will update after backend deployment
