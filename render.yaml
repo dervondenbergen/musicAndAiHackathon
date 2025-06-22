@@ -1,0 +1,65 @@
+services:
+  # Backend API Service
+  - type: web
+    name: architecture-soundscapes-backend
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: AI_SERVICE_URL
+        fromService:
+          type: web
+          name: architecture-soundscapes-ai
+          property: host
+      - key: CORS_ORIGIN
+        fromService:
+          type: web
+          name: architecture-soundscapes-frontend
+          property: host
+      - key: SOUNDS_CACHE_URL
+        sync: false  # Set this in Render dashboard
+    healthCheckPath: /health
+
+  # AI Service
+  - type: web
+    name: architecture-soundscapes-ai
+    runtime: docker
+    rootDir: ai
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: SOUNDS_CACHE_PATH
+        value: /app/sounds_cache
+      - key: MODEL_PATH
+        value: /app/blip
+      - key: CORS_ORIGIN
+        fromService:
+          type: web
+          name: architecture-soundscapes-frontend
+          property: host
+      - key: SOUNDS_CACHE_URL
+        sync: false  # Set this in Render dashboard (same URL as backend)
+      - key: MODEL_URL
+        sync: false  # Optional: Set this in Render dashboard if using external model
+    healthCheckPath: /health
+
+  # Frontend Static Site
+  - type: web
+    name: architecture-soundscapes-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: architecture-soundscapes-backend
+          property: host
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

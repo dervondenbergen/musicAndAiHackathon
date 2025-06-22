@@ -11,8 +11,8 @@ RUN .venv/bin/pip install -r requirements.txt
 FROM python:3.13.2-slim
 WORKDIR /app
 
-# Install curl and tar for downloading model
-RUN apt-get update && apt-get install -y curl tar && rm -rf /var/lib/apt/lists/*
+# Install curl, tar and unzip for downloading model and sounds
+RUN apt-get update && apt-get install -y curl tar unzip && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /app/.venv .venv/
 COPY . .
