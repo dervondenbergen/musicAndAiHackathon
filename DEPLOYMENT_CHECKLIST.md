@@ -3,7 +3,7 @@
 ## Prerequisites
 - [ ] Create accounts on Render.com
 - [ ] Prepare external storage for sounds_cache.zip
-- [ ] Prepare model hosting solution
+- [ ] Prepare model hosting solution (optional - auto-downloads from Hugging Face)
 
 ## Implementation Tasks
 
