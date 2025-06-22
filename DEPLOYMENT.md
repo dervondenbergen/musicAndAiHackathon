@@ -45,13 +45,10 @@ The AI service will automatically download the BLIP model from Hugging Face on f
 4. Select your repository
 
 ### 2. Configure Environment Variables
-After deployment starts, go to each service's dashboard and add:
+After deployment starts, go to the backend service's dashboard and add:
 
-#### Backend Service
+#### Combined Backend + AI Service
 - `SOUNDS_CACHE_URL`: Direct download URL for your sounds_cache.zip file
-
-#### AI Service
-- `SOUNDS_CACHE_URL`: Same URL as backend (both services need the sounds)
 - `MODEL_URL`: (Optional) Direct download URL for your model file (if using pre-downloaded model)
 
 ### 3. Manual Environment Variable Updates
@@ -62,11 +59,12 @@ After all services are deployed, update the CORS environment variables:
 3. Update frontend's `VITE_API_URL` to the backend URL
 
 ### 4. Verify Deployment
-1. Check health endpoints:
-   - Backend: `https://your-backend-url.onrender.com/health`
-   - AI: `https://your-ai-url.onrender.com/health`
+1. Check health endpoint:
+   - Combined service: `https://your-backend-url.onrender.com/health`
 
 2. Test the application at your frontend URL
+
+Note: The combined service runs both the backend (port 3000) and AI service (port 8000 internally) in the same container.
 
 ## Important Notes
 

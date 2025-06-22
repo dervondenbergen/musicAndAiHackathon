@@ -35,7 +35,12 @@
 - [x] Set up build and start commands
 - [x] Create deployment documentation
 
-### 6. Testing
+### 6. Free Tier Compatibility
+- [x] Combine backend and AI into single service (Render free tier limitation)
+- [x] Create combined Dockerfile and startup script
+- [x] Update render.yaml to use only one web service
+
+### 7. Testing
 - [ ] Test local deployment with env variables
 - [ ] Deploy to Render.com
 - [ ] Verify all services are running

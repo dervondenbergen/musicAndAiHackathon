@@ -48,7 +48,7 @@ const runQueue = async () => {
 setInterval(runQueue, 1000);
 
 const scapesFolder = path.resolve(import.meta.filename, "..", "scapes");
-const soundsCacheFolder = path.resolve(import.meta.filename, "..", "sounds_cache");
+const soundsCacheFolder = process.env.SOUNDS_CACHE_PATH || path.resolve(import.meta.filename, "..", "sounds_cache");
 
 const saveInformation = async (uuid, info) => {
     const soundscapeFolder = path.resolve(scapesFolder, uuid);

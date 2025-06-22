@@ -1,47 +1,28 @@
 services:
-  # Backend API Service
+  # Combined Backend + AI Service
   - type: web
     name: architecture-soundscapes-backend
     runtime: docker
-    rootDir: backend
     dockerfilePath: ./Dockerfile
     envVars:
+      # Service configuration
       - key: PORT
         value: 3000
       - key: AI_SERVICE_URL
-        fromService:
-          type: web
-          name: architecture-soundscapes-ai
-          property: host
+        value: http://localhost:8000
       - key: CORS_ORIGIN
         fromService:
           type: web
           name: architecture-soundscapes-frontend
           property: host
-      - key: SOUNDS_CACHE_URL
-        sync: false  # Set this in Render dashboard
-    healthCheckPath: /health
-
-  # AI Service
-  - type: web
-    name: architecture-soundscapes-ai
-    runtime: docker
-    rootDir: ai
-    dockerfilePath: ./Dockerfile
-    envVars:
-      - key: PORT
-        value: 8000
+      # Shared paths (both services use these)
       - key: SOUNDS_CACHE_PATH
         value: /app/sounds_cache
       - key: MODEL_PATH
-        value: /app/blip
-      - key: CORS_ORIGIN
-        fromService:
-          type: web
-          name: architecture-soundscapes-frontend
-          property: host
+        value: /app/ai/blip
+      # Download URLs (set these in Render dashboard)
       - key: SOUNDS_CACHE_URL
-        sync: false  # Set this in Render dashboard (same URL as backend)
+        sync: false  # Set this in Render dashboard
       - key: MODEL_URL
         sync: false  # Optional: Set this in Render dashboard if using external model
     healthCheckPath: /health

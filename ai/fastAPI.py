@@ -12,9 +12,10 @@ import json
 
 # Configuration from environment variables
 PORT = int(os.getenv('PORT', '8000'))
-SOUNDS_CACHE_PATH = os.getenv('SOUNDS_CACHE_PATH', os.path.join(os.path.dirname(__file__), '..', 'backend', 'sounds_cache'))
+SOUNDS_CACHE_PATH = os.getenv('SOUNDS_CACHE_PATH', '/app/sounds_cache')  # Default to shared location
 MODEL_PATH = os.getenv('MODEL_PATH', 'blip')
-CORS_ORIGIN = os.getenv('CORS_ORIGIN', '*')
+# AI service is internal, only allow localhost (backend calls it)
+CORS_ORIGIN = os.getenv('CORS_ORIGIN', 'http://localhost:3000')
 
 # Load the model and processor once at startup
 processor = BlipProcessor.from_pretrained(f"{MODEL_PATH}/processor")
