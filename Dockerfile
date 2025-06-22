@@ -42,10 +42,9 @@ COPY backend/ backend/
 COPY ai/ ai/
 
 # Copy startup scripts
-COPY backend/download-sounds.sh backend/
 COPY ai/download-model.sh ai/
 COPY start-combined.sh ./
-RUN chmod +x backend/download-sounds.sh ai/download-model.sh start-combined.sh
+RUN chmod +x ai/download-model.sh start-combined.sh
 
 EXPOSE 3000
 
