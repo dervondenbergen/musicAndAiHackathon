@@ -14,7 +14,7 @@
 ### 2. Backend Service Updates
 - [x] Add environment variable support in app.js
 - [x] Create download-sounds.sh script
-- [ ] Update Dockerfile for backend
+- [x] Update Dockerfile for backend
 - [x] Add health check endpoint
 
 ### 3. AI Service Updates  

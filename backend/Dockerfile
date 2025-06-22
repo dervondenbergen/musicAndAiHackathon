@@ -38,6 +38,13 @@ FROM base
 # Copy built application
 COPY --from=build /app /app
 
+# Install curl and unzip for downloading sounds
+RUN apt-get update && apt-get install -y curl unzip && rm -rf /var/lib/apt/lists/*
+
+# Copy download script
+COPY download-sounds.sh /app/download-sounds.sh
+RUN chmod +x /app/download-sounds.sh
+
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD [ "pnpm", "run", "start" ]
+CMD ["/bin/sh", "-c", "./download-sounds.sh && pnpm run start"]
