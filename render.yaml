@@ -2,6 +2,7 @@ services:
   # Combined Backend + AI Service
   - type: web
     name: architecture-soundscapes-backend
+    plan: free
     runtime: docker
     dockerfilePath: ./Dockerfile
     envVars:
