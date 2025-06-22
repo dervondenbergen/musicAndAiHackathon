@@ -31,6 +31,7 @@ services:
     name: architecture-soundscapes-frontend
     buildCommand: npm install && npm run build-only
     staticPublishPath: ./dist
+    rootDir: frontend
     envVars:
       - key: VITE_API_URL
         fromService:
