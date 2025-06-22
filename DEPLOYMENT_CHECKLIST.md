@@ -25,8 +25,8 @@
 - [x] Add health check endpoint
 
 ### 4. Frontend Updates
-- [ ] Create .env.production file
-- [ ] Update API calls to use environment variables
+- [x] Create .env.production file
+- [x] Update API calls to use environment variables
 - [ ] Update vite.config.ts if needed
 
 ### 5. Deployment Configuration

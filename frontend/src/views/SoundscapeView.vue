@@ -36,6 +36,7 @@
 
 <script setup lang="ts">
 import { computed, defineProps, nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef } from "vue";
+import { API_URL } from "@/config/api";
 
 const { uuid } = defineProps<{
   uuid: string;
@@ -53,13 +54,13 @@ const infoJson = ref<SoundscapeInfo>();
 
 const imagePath = computed(() => {
   if (infoJson.value) {
-    return `http://localhost:3000/scapes/${infoJson.value.uuid}/${infoJson.value.imageFilename}`
+    return `${API_URL}/scapes/${infoJson.value.uuid}/${infoJson.value.imageFilename}`
   }
 });
 
 const musicPath = computed(() => {
   if (infoJson.value?.musicFilename) {
-    return `http://localhost:3000/scapes/${infoJson.value.uuid}/${infoJson.value.musicFilename}`
+    return `${API_URL}/scapes/${infoJson.value.uuid}/${infoJson.value.musicFilename}`
   }
 });
 
@@ -88,7 +89,7 @@ const scheduleRefresh = () => {
 }
 
 const loadInformation = async () => {
-  const info = await fetch(`http://localhost:3000/soundscape/${uuid}?cb=${Date.now()}`);
+  const info = await fetch(`${API_URL}/soundscape/${uuid}?cb=${Date.now()}`);
   infoJson.value = (await info.json()) as SoundscapeInfo;
 }
 

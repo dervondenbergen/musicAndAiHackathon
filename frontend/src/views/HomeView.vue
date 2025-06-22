@@ -52,6 +52,7 @@
 <script setup lang="ts">
 import router from "@/router";
 import { ref } from "vue";
+import { API_URL } from "@/config/api";
 
 const imageInput = ref<HTMLInputElement | null>(null);
 const selectedFileUrl = ref("");
@@ -96,7 +97,7 @@ const submitForm = async (event: Event) => {
   formData.append("image", imageInput.value.files[0]);
 
 
-  const soundscapeRequest = await fetch("http://localhost:3000/soundscape", {
+  const soundscapeRequest = await fetch(`${API_URL}/soundscape`, {
     method: "POST",
     body: formData,
   });
