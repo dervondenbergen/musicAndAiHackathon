@@ -28,10 +28,9 @@ Simple web app which translates images to matching soundscapes. The focus should
 ## Technical Details
 
 How to start everything: (needs cleanup before end of hackathon)
-* `uvicorn fastAPI:app --reload` in the `ai` folder
-* `npm run start` in the `backend` folder
-* `npm run dev` in the `frontend` folder
-* `uvicorn fastAPI:app --reload` to run the FastAPI Python Backend
+* `uvicorn fastAPI:app --reload` (or `uv run uvicorn fastAPI:app --reload`) in the `ai` folder to run the FastAPI Python backend
+* `npm run start` in the `backend` folder to run the Node.js API backend
+* `npm run dev` in the `frontend` folder to run the VueJS application
 
 ### Tech Stack
 
